@@ -10,18 +10,12 @@ router = APIRouter()
 UPLOAD_DIR = "uploads"
 os.makedirs(UPLOAD_DIR, exist_ok=True)
 
-"""@router.post("/upload")
+@router.post("/upload")
 def upload_pdf(
     file: UploadFile = File(...),
     uid=Depends(require_role("faculty"))
-):"""
-
-
-@router.post("/upload")
-def upload_pdf(
-    file: UploadFile = File(...)
 ):
-    uid = "test_faculty"
+
 
 
 

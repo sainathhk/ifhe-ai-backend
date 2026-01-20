@@ -1,19 +1,17 @@
-'''import firebase_admin
+import os, json
+import firebase_admin
 from firebase_admin import credentials, auth, firestore
 
-cred = credentials.Certificate("serviceAccountKey.json")
-
-firebase_admin.initialize_app(cred)
-
-db = firestore.client()
-'''
-
-import os, json
-from firebase_admin import credentials, initialize_app
-
+# Load service account from env
 service_account_info = json.loads(
-    os.environ.get("FIREBASE_SERVICE_ACCOUNT")
+    os.environ["FIREBASE_SERVICE_ACCOUNT"]
 )
 
 cred = credentials.Certificate(service_account_info)
-initialize_app(cred)
+
+# Initialize only once
+if not firebase_admin._apps:
+    firebase_admin.initialize_app(cred)
+
+# EXPORT THESE 👇
+db = firestore.client()
