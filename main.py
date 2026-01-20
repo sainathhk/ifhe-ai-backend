@@ -12,7 +12,7 @@ app.add_middleware(
     CORSMiddleware,
     allow_origins=[
         "http://localhost:5173",
-        "https://your-frontend-url.onrender.com"  # later
+        "https://ifhe-ai-frontend-6adccoelt-sainaths-projects-321166a5.vercel.app"  # later
     ],
     allow_credentials=True,
     allow_methods=["*"],
